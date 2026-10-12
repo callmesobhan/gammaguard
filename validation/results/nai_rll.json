@@ -1,0 +1,435 @@
+{
+ "dataset": "eth_rll",
+ "results": [
+  {
+   "crystal": "1",
+   "n_lines": 9,
+   "lines_not_found": [],
+   "d1_ch_per_keV": 0.3314465510642658,
+   "kev_per_ch": 3.0170777061611513,
+   "offset_free_fit_keV": 8.674372073618166,
+   "offset_err_keV": 3.3732815537540106,
+   "free_fit_h0_ch": -2.897779235144459,
+   "free_fit_d_ch_per_keV": 0.33406213274591146,
+   "cal_R2": 0.9996336502623131,
+   "cal_max_abs_resid_keV": 37.58965374437303,
+   "cal_rms_resid_keV": 12.856717395655297,
+   "cal_loo_rel_error": 0.0003909207386648401,
+   "b1": 0.486814680606692,
+   "b2": 0.6630074183264919,
+   "res_R2": 0.9882703307253506,
+   "res_loo_rel_error": 0.01805219346402966,
+   "fwhm_pct_at_662": 7.914953925466831,
+   "fwhm_pct_at_1332": 6.251611249470229,
+   "lines": [
+    {
+     "source": "Unat",
+     "energy": 351.932,
+     "read_keV": 350.25768067415913,
+     "fwhm_pct": 8.230201122732538,
+     "reduced_deviance": 657.1374436147048
+    },
+    {
+     "source": "Unat",
+     "energy": 609.32,
+     "read_keV": 608.098954480774,
+     "fwhm_pct": 8.347157196325153,
+     "reduced_deviance": 32.452788158793844
+    },
+    {
+     "source": "Cs137",
+     "energy": 661.657,
+     "read_keV": 662.140751740886,
+     "fwhm_pct": 8.393618614295178,
+     "reduced_deviance": 87.89261568160371
+    },
+    {
+     "source": "Y88",
+     "energy": 898.042,
+     "read_keV": 895.6769311256543,
+     "fwhm_pct": 7.406008077956107,
+     "reduced_deviance": 19.332871051773225
+    },
+    {
+     "source": "Y88",
+     "energy": 1836.06,
+     "read_keV": 1844.071676268341,
+     "fwhm_pct": 5.704158580648539,
+     "reduced_deviance": 74.28135141196775
+    },
+    {
+     "source": "Co60",
+     "energy": 1173.228,
+     "read_keV": 1173.4371622892616,
+     "fwhm_pct": 6.25763826147776,
+     "reduced_deviance": 73.24534666143732
+    },
+    {
+     "source": "Co60",
+     "energy": 1332.492,
+     "read_keV": 1332.8318184740367,
+     "fwhm_pct": 5.908811630633215,
+     "reduced_deviance": 73.24534666143732
+    },
+    {
+     "source": "Knat",
+     "energy": 1460.822,
+     "read_keV": 1461.2764503542621,
+     "fwhm_pct": 6.223548569487696,
+     "reduced_deviance": 6.209480514496494
+    },
+    {
+     "source": "Thnat",
+     "energy": 2614.51,
+     "read_keV": 2652.099653744373,
+     "fwhm_pct": 4.936145193783935,
+     "reduced_deviance": 23.992262645297366
+    }
+   ]
+  },
+  {
+   "crystal": "2",
+   "n_lines": 9,
+   "lines_not_found": [],
+   "d1_ch_per_keV": 0.3319912602167854,
+   "kev_per_ch": 3.012127485967597,
+   "offset_free_fit_keV": 10.095660359832015,
+   "offset_err_keV": 4.530963000063432,
+   "free_fit_h0_ch": -3.3799886556427574,
+   "free_fit_d_ch_per_keV": 0.33479619313371967,
+   "cal_R2": 0.9996704585017716,
+   "cal_max_abs_resid_keV": 35.84211623286005,
+   "cal_rms_resid_keV": 12.178122060065544,
+   "cal_loo_rel_error": 0.00038881643370834566,
+   "b1": 0.5055673952072778,
+   "b2": 0.6405154571800908,
+   "res_R2": 0.992252086837541,
+   "res_loo_rel_error": 0.011244567277610237,
+   "fwhm_pct_at_662": 7.277005316363883,
+   "fwhm_pct_at_1332": 5.657935548519151,
+   "lines": [
+    {
+     "source": "Unat",
+     "energy": 351.932,
+     "read_keV": 350.9840858560929,
+     "fwhm_pct": 8.00184951455069,
+     "reduced_deviance": 948.3090930506137
+    },
+    {
+     "source": "Unat",
+     "energy": 609.32,
+     "read_keV": 608.2420930754919,
+     "fwhm_pct": 7.685382349510815,
+     "reduced_deviance": 47.135670947878005
+    },
+    {
+     "source": "Cs137",
+     "energy": 661.657,
+     "read_keV": 662.0846951681311,
+     "fwhm_pct": 7.478749160638352,
+     "reduced_deviance": 45.47514425133675
+    },
+    {
+     "source": "Y88",
+     "energy": 898.042,
+     "read_keV": 894.1396402231527,
+     "fwhm_pct": 6.693837908801233,
+     "reduced_deviance": 3.4387856763680658
+    },
+    {
+     "source": "Y88",
+     "energy": 1836.06,
+     "read_keV": 1840.816364484235,
+     "fwhm_pct": 5.0952509861394555,
+     "reduced_deviance": 11.17199549244555
+    },
+    {
+     "source": "Co60",
+     "energy": 1173.228,
+     "read_keV": 1175.1820709829656,
+     "fwhm_pct": 5.7102111808471365,
+     "reduced_deviance": 120.34378857173445
+    },
+    {
+     "source": "Co60",
+     "energy": 1332.492,
+     "read_keV": 1334.1534617010468,
+     "fwhm_pct": 5.394568906300526,
+     "reduced_deviance": 120.34378857173445
+    },
+    {
+     "source": "Knat",
+     "energy": 1460.822,
+     "read_keV": 1458.970242700968,
+     "fwhm_pct": 5.6161389721041814,
+     "reduced_deviance": 3.4556982651811885
+    },
+    {
+     "source": "Thnat",
+     "energy": 2614.51,
+     "read_keV": 2650.35211623286,
+     "fwhm_pct": 4.437364102468885,
+     "reduced_deviance": 6.672016393722014
+    }
+   ]
+  },
+  {
+   "crystal": "3",
+   "n_lines": 9,
+   "lines_not_found": [],
+   "d1_ch_per_keV": 0.3343165951069447,
+   "kev_per_ch": 2.9911766709639687,
+   "offset_free_fit_keV": -4.93690616421257,
+   "offset_err_keV": 1.5026000149520784,
+   "free_fit_h0_ch": 1.6434235049158696,
+   "free_fit_d_ch_per_keV": 0.33288530311330994,
+   "cal_R2": 0.999983216627018,
+   "cal_max_abs_resid_keV": 4.860690920383565,
+   "cal_rms_resid_keV": 2.7045334539827786,
+   "cal_loo_rel_error": 2.104520585101596e-05,
+   "b1": 0.4115748769634585,
+   "b2": 0.6991855302382936,
+   "res_R2": 0.9887609904725996,
+   "res_loo_rel_error": 0.016512378604051837,
+   "fwhm_pct_at_662": 8.111512501126489,
+   "fwhm_pct_at_1332": 6.571200333741538,
+   "lines": [
+    {
+     "source": "Unat",
+     "energy": 351.932,
+     "read_keV": 354.38539302987317,
+     "fwhm_pct": 8.441034401578378,
+     "reduced_deviance": 707.9824108527556
+    },
+    {
+     "source": "Unat",
+     "energy": 609.32,
+     "read_keV": 611.5230417370159,
+     "fwhm_pct": 8.538263868499326,
+     "reduced_deviance": 38.33499899001836
+    },
+    {
+     "source": "Cs137",
+     "energy": 661.657,
+     "read_keV": 665.0510308070608,
+     "fwhm_pct": 8.480015355769396,
+     "reduced_deviance": 36.46368655327158
+    },
+    {
+     "source": "Y88",
+     "energy": 898.042,
+     "read_keV": 898.8885396816511,
+     "fwhm_pct": 7.637737766023951,
+     "reduced_deviance": 10.323436404979587
+    },
+    {
+     "source": "Y88",
+     "energy": 1836.06,
+     "read_keV": 1831.888841626613,
+     "fwhm_pct": 5.973805315692044,
+     "reduced_deviance": 28.493594143923172
+    },
+    {
+     "source": "Co60",
+     "energy": 1173.228,
+     "read_keV": 1172.8630794839826,
+     "fwhm_pct": 6.550114535414768,
+     "reduced_deviance": 65.09375630471135
+    },
+    {
+     "source": "Co60",
+     "energy": 1332.492,
+     "read_keV": 1333.4937443056997,
+     "fwhm_pct": 6.178889547505202,
+     "reduced_deviance": 65.09375630471135
+    },
+    {
+     "source": "Knat",
+     "energy": 1460.822,
+     "read_keV": 1455.9613090796163,
+     "fwhm_pct": 6.745729669054191,
+     "reduced_deviance": 11.664609667565834
+    },
+    {
+     "source": "Thnat",
+     "energy": 2614.51,
+     "read_keV": 2615.2585779792853,
+     "fwhm_pct": 5.371652924581337,
+     "reduced_deviance": 8.082523055128375
+    }
+   ]
+  },
+  {
+   "crystal": "4",
+   "n_lines": 9,
+   "lines_not_found": [],
+   "d1_ch_per_keV": 0.3336486861078687,
+   "kev_per_ch": 2.9971645075703965,
+   "offset_free_fit_keV": 6.116491997056179,
+   "offset_err_keV": 3.436155964640643,
+   "free_fit_h0_ch": -2.050191500049855,
+   "free_fit_d_ch_per_keV": 0.3351907434909744,
+   "cal_R2": 0.9999012630762616,
+   "cal_max_abs_resid_keV": 18.87257326452641,
+   "cal_rms_resid_keV": 6.615299332451635,
+   "cal_loo_rel_error": 0.0001613916022513,
+   "b1": 0.445290907325831,
+   "b2": 0.6659958374594084,
+   "res_R2": 0.9899100050565165,
+   "res_loo_rel_error": 0.014359102097612104,
+   "fwhm_pct_at_662": 7.341148547188247,
+   "fwhm_pct_at_1332": 5.810535502821799,
+   "lines": [
+    {
+     "source": "Unat",
+     "energy": 351.932,
+     "read_keV": 352.18237409688453,
+     "fwhm_pct": 7.8610500549323525,
+     "reduced_deviance": 1309.0338590807603
+    },
+    {
+     "source": "Unat",
+     "energy": 609.32,
+     "read_keV": 609.0539732948914,
+     "fwhm_pct": 7.768817408434277,
+     "reduced_deviance": 60.26648981515122
+    },
+    {
+     "source": "Cs137",
+     "energy": 661.657,
+     "read_keV": 663.0058917389196,
+     "fwhm_pct": 7.526515470805187,
+     "reduced_deviance": 44.989736043427136
+    },
+    {
+     "source": "Y88",
+     "energy": 898.042,
+     "read_keV": 894.713828398375,
+     "fwhm_pct": 6.801141157255027,
+     "reduced_deviance": 4.676498282520971
+    },
+    {
+     "source": "Y88",
+     "energy": 1836.06,
+     "read_keV": 1835.3444524007857,
+     "fwhm_pct": 5.2546498071153565,
+     "reduced_deviance": 5.7003905681690785
+    },
+    {
+     "source": "Co60",
+     "energy": 1173.228,
+     "read_keV": 1173.5963120939136,
+     "fwhm_pct": 5.8142658385132355,
+     "reduced_deviance": 47.209330971560924
+    },
+    {
+     "source": "Co60",
+     "energy": 1332.492,
+     "read_keV": 1332.0131059228895,
+     "fwhm_pct": 5.494274176044433,
+     "reduced_deviance": 47.209330971560924
+    },
+    {
+     "source": "Knat",
+     "energy": 1460.822,
+     "read_keV": 1455.9456333746596,
+     "fwhm_pct": 5.909262550153311,
+     "reduced_deviance": 15.674198167447285
+    },
+    {
+     "source": "Thnat",
+     "energy": 2614.51,
+     "read_keV": 2633.382573264527,
+     "fwhm_pct": 4.651513094118265,
+     "reduced_deviance": 3.928473864024557
+    }
+   ]
+  },
+  {
+   "crystal": "sum",
+   "n_lines": 9,
+   "lines_not_found": [],
+   "d1_ch_per_keV": 0.33270119528832687,
+   "kev_per_ch": 3.0057000520643635,
+   "offset_free_fit_keV": 6.86158412449803,
+   "offset_err_keV": 3.0240936844474526,
+   "free_fit_h0_ch": -2.2959947228626434,
+   "free_fit_d_ch_per_keV": 0.3346158381510203,
+   "cal_R2": 0.9998316374926397,
+   "cal_max_abs_resid_keV": 25.566330579466307,
+   "cal_rms_resid_keV": 8.663334181642329,
+   "cal_loo_rel_error": 0.000209964858127183,
+   "b1": 0.480688409040961,
+   "b2": 0.6611700591240741,
+   "res_R2": 0.9895857305199796,
+   "res_loo_rel_error": 0.01535035681006981,
+   "fwhm_pct_at_662": 7.728426125187833,
+   "fwhm_pct_at_1332": 6.096435977941585,
+   "lines": [
+    {
+     "source": "Unat",
+     "energy": 351.932,
+     "read_keV": 352.09090407647665,
+     "fwhm_pct": 8.130959216466543,
+     "reduced_deviance": 3028.4112725049345
+    },
+    {
+     "source": "Unat",
+     "energy": 609.32,
+     "read_keV": 609.297378627626,
+     "fwhm_pct": 8.153697811406749,
+     "reduced_deviance": 123.84130322756486
+    },
+    {
+     "source": "Cs137",
+     "energy": 661.657,
+     "read_keV": 663.2424160007574,
+     "fwhm_pct": 8.046537623415787,
+     "reduced_deviance": 236.3004763233742
+    },
+    {
+     "source": "Y88",
+     "energy": 898.042,
+     "read_keV": 895.9634710489591,
+     "fwhm_pct": 7.214605087927542,
+     "reduced_deviance": 10.960871518149325
+    },
+    {
+     "source": "Y88",
+     "energy": 1836.06,
+     "read_keV": 1838.5456670204926,
+     "fwhm_pct": 5.498281056964124,
+     "reduced_deviance": 23.400287337859123
+    },
+    {
+     "source": "Co60",
+     "energy": 1173.228,
+     "read_keV": 1174.2210221676567,
+     "fwhm_pct": 6.113227173659089,
+     "reduced_deviance": 166.79058506852255
+    },
+    {
+     "source": "Co60",
+     "energy": 1332.492,
+     "read_keV": 1333.3529822591336,
+     "fwhm_pct": 5.77404886183267,
+     "reduced_deviance": 166.79058506852255
+    },
+    {
+     "source": "Knat",
+     "energy": 1460.822,
+     "read_keV": 1458.1616503526393,
+     "fwhm_pct": 6.12514689569601,
+     "reduced_deviance": 16.761148899613914
+    },
+    {
+     "source": "Thnat",
+     "energy": 2614.51,
+     "read_keV": 2640.0763305794667,
+     "fwhm_pct": 4.846051718035623,
+     "reduced_deviance": 20.611620664896048
+    }
+   ]
+  }
+ ]
+}

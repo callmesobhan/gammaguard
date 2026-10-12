@@ -1,0 +1,247 @@
+{
+ "experiment_A": [
+  {
+   "crystal": "3",
+   "status": "PASS",
+   "per_line_shift_keV": [
+    {
+     "energy": 661.657,
+     "qa": -1.4739892240041573e-06,
+     "independent": 0.0
+    },
+    {
+     "energy": 1173.228,
+     "qa": -0.2057682537058187,
+     "independent": 0.0
+    },
+    {
+     "energy": 1332.492,
+     "qa": 0.17036359693532502,
+     "independent": 0.0
+    }
+   ],
+   "fwhm_ratio_qa": 0.9987840210370168,
+   "fwhm_ratio_qa_err": 0.004599007348482099,
+   "fwhm_ratio_independent": 1.0,
+   "checks": {
+    "acquisition": "PASS",
+    "calibration": "PASS",
+    "resolution": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "crystal": "1",
+   "status": "WARN",
+   "per_line_shift_keV": [
+    {
+     "energy": 661.657,
+     "qa": -8.444839617512486,
+     "independent": -11.302827552471939
+    },
+    {
+     "energy": 1173.228,
+     "qa": -9.889440608362,
+     "independent": -9.494300992876
+    },
+    {
+     "energy": 1332.492,
+     "qa": -12.704600073202599,
+     "independent": -8.931264436879776
+    }
+   ],
+   "fwhm_ratio_qa": 0.9597379023182057,
+   "fwhm_ratio_qa_err": 0.005848461646598864,
+   "fwhm_ratio_independent": 0.960963214186767,
+   "checks": {
+    "acquisition": "PASS",
+    "calibration": "WARN",
+    "resolution": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "crystal": "2",
+   "status": "WARN",
+   "per_line_shift_keV": [
+    {
+     "energy": 661.657,
+     "qa": -7.722493702989151,
+     "independent": -11.29235315337678
+    },
+    {
+     "energy": 1173.228,
+     "qa": -6.308384999202322,
+     "independent": -8.355738320915252
+    },
+    {
+     "energy": 1332.492,
+     "qa": -8.825896497116435,
+     "independent": -7.441501539164019
+    }
+   ],
+   "fwhm_ratio_qa": 0.868881081690024,
+   "fwhm_ratio_qa_err": 0.00465432298484884,
+   "fwhm_ratio_independent": 0.8752050677722659,
+   "checks": {
+    "acquisition": "PASS",
+    "calibration": "WARN",
+    "resolution": "WARN",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "crystal": "4",
+   "status": "WARN",
+   "per_line_shift_keV": [
+    {
+     "energy": 661.657,
+     "qa": -3.219529116680194,
+     "independent": -6.513367279129614
+    },
+    {
+     "energy": 1173.228,
+     "qa": -2.1214209481675166,
+     "independent": -2.9704159129628356
+    },
+    {
+     "energy": 1332.492,
+     "qa": -4.478395956189443,
+     "independent": -1.8674124073276577
+    }
+   ],
+   "fwhm_ratio_qa": 0.8824649745012528,
+   "fwhm_ratio_qa_err": 0.005108963478663253,
+   "fwhm_ratio_independent": 0.8924190756608171,
+   "checks": {
+    "acquisition": "PASS",
+    "calibration": "PASS",
+    "resolution": "WARN",
+    "unexpected_peaks": "WARN",
+    "channel_anomalies": "PASS"
+   }
+  }
+ ],
+ "experiment_B": [
+  {
+   "background_of": "Co60",
+   "status": "PASS",
+   "total_rate_ratio": 1.0019585864433713,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Y88",
+   "status": "PASS",
+   "total_rate_ratio": 0.9956272124947079,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Cd109",
+   "status": "PASS",
+   "total_rate_ratio": 1.001127836142201,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Ba133",
+   "status": "PASS",
+   "total_rate_ratio": 1.0019585864433713,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Cs137",
+   "status": "PASS",
+   "total_rate_ratio": 1.0011417777130498,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Eu152",
+   "status": "PASS",
+   "total_rate_ratio": 1.001127836142201,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Knat",
+   "status": "PASS",
+   "total_rate_ratio": 0.9972687554804512,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Thnat",
+   "status": "PASS",
+   "total_rate_ratio": 1.0011417777130498,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  },
+  {
+   "background_of": "Unat",
+   "status": "PASS",
+   "total_rate_ratio": 1.0011417777130498,
+   "flagged_bands": [],
+   "non_pass_checks": [],
+   "checks": {
+    "acquisition": "PASS",
+    "background": "PASS",
+    "unexpected_peaks": "PASS",
+    "channel_anomalies": "PASS"
+   }
+  }
+ ]
+}
