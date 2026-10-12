@@ -184,7 +184,8 @@ docs/          design.md (statistics and rationale)  validation.md  benchmark.md
 * No efficiency / peak-area stability check yet.
 * Nuclide data in [`isotopes.py`](src/gammaguard/isotopes.py) are illustrative; verify before use beyond simulation.
 * Tolerances are defaults, not recommendations for any facility.
-* Verified locally on Python 3.13 (full suite) and 3.12 (demo run); the CI matrix also lists 3.10 and 3.11 but has not been run.
+* GitHub Actions runs lint, the offline test suite and a CLI smoke test on Python 3.10-3.13 (all passing at the first run). The
+  real-data tests are not part of CI: they need the downloaded datasets.
 
 ## Roadmap
 
