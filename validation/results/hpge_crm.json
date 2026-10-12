@@ -1,0 +1,549 @@
+{
+ "dataset": "hpge_crm",
+ "H1": {
+  "n_spectra": 78,
+  "n_lines_expected": 270,
+  "n_lines_found": 270,
+  "shift_keV_mean": -0.004684115305213747,
+  "shift_keV_median": -0.000181389416525235,
+  "shift_keV_sd": 0.1375483059700944,
+  "shift_keV_p95_abs": 0.20375428463633222,
+  "shift_keV_max_abs": 0.4208610543175837,
+  "fraction_within_0p1_keV": 0.3592592592592593,
+  "median_abs_z": 7.7330545768855545,
+  "by_energy": {
+   "238.63": {
+    "n": 20,
+    "shift_mean": -0.18284321282799426,
+    "shift_sd": 0.0058754257745436194,
+    "fwhm_median": 1.0984666707957578
+   },
+   "351.93": {
+    "n": 44,
+    "shift_mean": -0.17793274750039245,
+    "shift_sd": 0.03410488679723242,
+    "fwhm_median": 1.2082116389052253
+   },
+   "583.19": {
+    "n": 20,
+    "shift_mean": -0.0031019958898241386,
+    "shift_sd": 0.013110742532150403,
+    "fwhm_median": 1.3729727749703908
+   },
+   "609.31": {
+    "n": 44,
+    "shift_mean": -0.02363453528904684,
+    "shift_sd": 0.025561353463610808,
+    "fwhm_median": 1.3832729805797093
+   },
+   "911.20": {
+    "n": 20,
+    "shift_mean": 0.1119178398763836,
+    "shift_sd": 0.028145778653480877,
+    "fwhm_median": 1.5900476682735762
+   },
+   "1120.29": {
+    "n": 44,
+    "shift_mean": 0.11794244251574976,
+    "shift_sd": 0.01241565957836016,
+    "fwhm_median": 1.7256916191028981
+   },
+   "1460.82": {
+    "n": 14,
+    "shift_mean": 0.1587795426148984,
+    "shift_sd": 0.1829942784598194,
+    "fwhm_median": 1.9489576072819839
+   },
+   "1764.49": {
+    "n": 44,
+    "shift_mean": 0.1095754916669772,
+    "shift_sd": 0.030748572300141712,
+    "fwhm_median": 2.1045304373523734
+   },
+   "2614.51": {
+    "n": 20,
+    "shift_mean": -0.15744530067461254,
+    "shift_sd": 0.09247994425570857,
+    "fwhm_median": 2.53626158047045
+   }
+  },
+  "fwhm_model_a_b": [
+   0.6497055577887063,
+   0.002151380006634293
+  ],
+  "fwhm_at_1332_keV_model": 1.875206096094196,
+  "fwhm_median_by_year": {
+   "609.31": {
+    "2013": [
+     1.3905972493272747,
+     1
+    ],
+    "2014": [
+     1.4942176089607009,
+     1
+    ],
+    "2015": [
+     1.3904162604397468,
+     19
+    ],
+    "2016": [
+     1.3732254159592958,
+     19
+    ],
+    "2019": [
+     1.3770964862511146,
+     1
+    ],
+    "2020": [
+     1.3900363039605645,
+     1
+    ],
+    "2021": [
+     1.437665879090992,
+     1
+    ],
+    "2022": [
+     1.4693606659749932,
+     1
+    ]
+   },
+   "1460.82": {
+    "2013": [
+     1.9128150946008597,
+     1
+    ],
+    "2015": [
+     1.939540485386262,
+     4
+    ],
+    "2016": [
+     1.9515482664194113,
+     6
+    ],
+    "2020": [
+     1.9290484644474484,
+     1
+    ],
+    "2021": [
+     1.9600808053356369,
+     1
+    ],
+    "2022": [
+     1.9483725283323667,
+     1
+    ]
+   }
+  }
+ },
+ "H2_H3": {
+  "baseline_spectrum": "S207",
+  "baseline_live_time_s": 187879.08000000002,
+  "baseline_total_counts": 219590537,
+  "baseline_lines": [
+   [
+    "Pb-214 351.9",
+    1.217
+   ],
+   [
+    "Bi-214 609.3",
+    1.377
+   ],
+   [
+    "Bi-214 1120.3",
+    1.677
+   ],
+   [
+    "Bi-214 1764.5",
+    2.012
+   ]
+  ],
+  "groups": {
+   "RGU-1": {
+    "n": 43,
+    "status": {
+     "PASS": 38,
+     "WARN": 5,
+     "FAIL": 0
+    },
+    "check_non_pass": {
+     "calibration": 5,
+     "unexpected_peaks": 1
+    },
+    "unexpected": [
+     {
+      "energy_keV": 583.2,
+      "candidates": "Tl-208 583.2"
+     },
+     {
+      "energy_keV": 969.0,
+      "candidates": "Ac-228 969.0"
+     }
+    ],
+    "channel_flagged": 0,
+    "channel_flags": 0,
+    "th_hint_fraction": null,
+    "n_unexpected_peaks": 2
+   },
+   "RGTh-1": {
+    "n": 20,
+    "status": {
+     "PASS": 0,
+     "WARN": 1,
+     "FAIL": 19
+    },
+    "check_non_pass": {
+     "calibration": 19,
+     "unexpected_peaks": 20,
+     "channel_anomalies": 5,
+     "resolution": 1
+    },
+    "unexpected": [
+     {
+      "energy_keV": 33.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 57.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 114.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 128.8,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 166.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 191.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 199.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 215.8,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 263.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 277.2,
+      "candidates": "Ba-133 276.4"
+     },
+     {
+      "energy_keV": 374.8,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 377.3,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 409.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 415.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 550.0,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 562.7,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 583.5,
+      "candidates": "Tl-208 583.2"
+     },
+     {
+      "energy_keV": 620.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 727.8,
+      "candidates": "Bi-212 727.3"
+     },
+     {
+      "energy_keV": 755.8,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 763.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 772.8,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 795.5,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 861.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 894.0,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 952.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 969.7,
+      "candidates": "Ac-228 969.0"
+     },
+     {
+      "energy_keV": 1005.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1040.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1079.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1111.6,
+      "candidates": "Eu-152 1112.1"
+     },
+     {
+      "energy_keV": 1124.0,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1165.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1169.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1247.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1288.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1433.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1497.3,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1502.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1514.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1530.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1558.5,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1589.7,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1622.3,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1626.5,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1632.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1668.1,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1704.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1824.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 1954.0,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 2864.1,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 56.3,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 127.9,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 165.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 198.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 208.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 215.0,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 321.2,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 409.5,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 504.3,
+      "candidates": "annihilation 511.0"
+     }
+    ],
+    "channel_flagged": 5,
+    "channel_flags": 12,
+    "th_hint_fraction": 0.6229508196721312,
+    "n_hints": 61,
+    "n_unexpected_peaks": 585
+   },
+   "RGK-1": {
+    "n": 14,
+    "status": {
+     "PASS": 0,
+     "WARN": 1,
+     "FAIL": 13
+    },
+    "check_non_pass": {
+     "calibration": 13,
+     "unexpected_peaks": 7
+    },
+    "unexpected": [
+     {
+      "energy_keV": 949.8,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 949.4,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 949.7,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 949.5,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 949.7,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 583.1,
+      "candidates": "Tl-208 583.2"
+     },
+     {
+      "energy_keV": 949.6,
+      "candidates": "none in library"
+     },
+     {
+      "energy_keV": 583.2,
+      "candidates": "Tl-208 583.2"
+     }
+    ],
+    "channel_flagged": 0,
+    "channel_flags": 0,
+    "th_hint_fraction": null,
+    "n_unexpected_peaks": 8
+   }
+  }
+ },
+ "H4": {
+  "reference": "Lead-shield background, 02/2016, 144 h",
+  "rows": [
+   {
+    "background": "background-1.Chn",
+    "desc": "Background with cylindrical box, 2 cm (m = 115.31 g), 01/2016",
+    "live_h": 36.0,
+    "status": "PASS",
+    "total_rate_ratio": 0.9914118717586506,
+    "flagged_bands": [],
+    "non_pass_checks": []
+   },
+   {
+    "background": "background Oct-2016.Chn",
+    "desc": "Lead-shield background, 10/2016, 77 h",
+    "live_h": 77.10738333333333,
+    "status": "PASS",
+    "total_rate_ratio": 1.0132793064608219,
+    "flagged_bands": [],
+    "non_pass_checks": []
+   },
+   {
+    "background": "background-2.Chn",
+    "desc": "Background with PMMA (incense) box, 04/2016",
+    "live_h": 25.553394444444447,
+    "status": "FAIL",
+    "total_rate_ratio": 1.6632743074335514,
+    "flagged_bands": [
+     "20-3000 keV total",
+     "20-100 keV",
+     "100-300 keV",
+     "300-600 keV",
+     "600-1000 keV",
+     "1000-1500 keV",
+     "1500-3000 keV",
+     "351.9 keV line",
+     "609.3 keV line",
+     "1120.3 keV line",
+     "1460.8 keV line",
+     "1764.5 keV line",
+     "2614.5 keV line"
+    ],
+    "non_pass_checks": [
+     "background",
+     "unexpected_peaks"
+    ]
+   }
+  ]
+ }
+}

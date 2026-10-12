@@ -1,0 +1,8 @@
+GammaGuard
+Copyright 2026 Sobhan Shahbazi
+
+This product includes software developed by Sobhan Shahbazi.
+
+The real spectra used by the validation scripts are third-party datasets with their
+own licences. They are not part of this product and are not redistributed with it;
+see docs/data.md.

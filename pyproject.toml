@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gammaguard"
+version = "0.2.0"
+description = "Gamma spectroscopy anomaly detection and detector QA for HPGe and NaI(Tl): calibration drift, resolution loss, background changes, suspicious spectral features."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Sobhan Shahbazi" }]
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+dev = ["pytest>=7", "ruff>=0.4", "matplotlib>=3.7"]
+
+[project.scripts]
+gammaguard = "gammaguard.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+markers = ["realdata: needs the open validation datasets in the local cache (skipped otherwise)"]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "NPY"]
+
+[tool.ruff.lint.per-file-ignores]
+"validation/*" = ["E501"]  # wide result tables
+"tests/*" = ["E501"]
