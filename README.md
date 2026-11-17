@@ -1,16 +1,36 @@
-# GammaGuard
+<div align="center">
 
-**Gamma spectroscopy anomaly detection and detector QA, for HPGe and NaI(Tl).**
-Detect energy-calibration drift, loss of resolution, background changes and suspicious spectral features in simulated or real
-detector measurements.
+# GammaGuard 📈🛡️
 
-`Python` · `Signal processing` · `Poisson statistics` · `Peak fitting` · `QA`
+**Gamma Spectroscopy Anomaly Detection & Detector QA for HPGe and NaI(Tl)**  
+*Detect energy-calibration drift, resolution degradation, background shifts, channel faults, and unexpected spectral peaks with Poisson-exact confidence intervals*
 
+[![CI](https://github.com/callmesobhan/gammaguard/actions/workflows/ci.yml/badge.svg)](https://github.com/callmesobhan/gammaguard/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-indigo.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Detectors](https://img.shields.io/badge/Detectors-HPGe%20%7C%20NaI(Tl)-10b981)](#detector-support)
+
+</div>
+
+> [!NOTE]
 > **Status: v0.2.** Tested on a simulator with injected faults *and* sanity-checked on two open real datasets (one NaI(Tl), one
 > HPGe). The real-data results are mixed, and the repo says so: some of the published goodness-of-fit figures were **not**
 > reproduced, and the real data exposed three bugs that the HPGe simulator never showed (plus two more found while building the NaI
 > simulator; all fixed, all with regression tests). Read
 > [docs/validation.md](docs/validation.md) before trusting it with a real detector, and see [Limitations](#limitations).
+
+## QA Pipeline Architecture
+
+```mermaid
+flowchart LR
+    A["📊 Baseline Spectrum (Known-Good HPGe / NaI)"] --> C["GammaGuard QA Engine"]
+    B["📈 New Measurement Spectrum"] --> C
+    C --> D["1. Poisson Peak Fit & Calibration Drift (Offset + Gain)"]
+    C --> E["2. FWHM Resolution Law Check"]
+    C --> F["3. Conditional-Binomial Background & Nuclide Windows"]
+    C --> G["4. Unexpected Peak Search & ADC Channel Peeling"]
+    D & E & F & G --> H["Verdict: PASS / WARN / FAIL + Auditable Report"]
+```
 
 ## What it checks
 
