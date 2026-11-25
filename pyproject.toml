@@ -8,8 +8,7 @@ version = "0.2.0"
 description = "Gamma spectroscopy anomaly detection and detector QA for HPGe and NaI(Tl): calibration drift, resolution loss, background changes, suspicious spectral features."
 readme = "README.md"
 requires-python = ">=3.10"
-license = "Apache-2.0"
-license-files = ["LICENSE", "NOTICE"]
+license = { file = "LICENSE" }
 authors = [{ name = "Sobhan Shahbazi" }]
 dependencies = ["numpy>=1.24", "scipy>=1.10"]
 

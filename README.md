@@ -6,7 +6,7 @@
 *Detect energy-calibration drift, resolution degradation, background shifts, channel faults, and unexpected spectral peaks with Poisson-exact confidence intervals*
 
 [![CI](https://github.com/callmesobhan/gammaguard/actions/workflows/ci.yml/badge.svg)](https://github.com/callmesobhan/gammaguard/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-indigo.svg)](LICENSE)
+[![License: Non-Commercial (Research & Personal)](https://img.shields.io/badge/License-Non--Commercial%20(Research%20%26%20Personal)-f59e0b.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Detectors](https://img.shields.io/badge/Detectors-HPGe%20%7C%20NaI(Tl)-10b981)](#detector-support)
 
@@ -248,5 +248,5 @@ gammaguard benchmark --detector nai --trials 100
 
 ## License
 
-Copyright 2026 Sobhan Shahbazi. The code is licensed under the **Apache License 2.0** ([LICENSE](LICENSE), [NOTICE](NOTICE)).
+Copyright 2026 Sobhan Shahbazi. The code is released under the **Non-Commercial Personal & Academic Research License (NC-PARL 1.0)** ([LICENSE](LICENSE), [NOTICE](NOTICE)): free for personal use and non-commercial research with citation (`Sobhan Shahbazi (2026). gammaguard. https://github.com/callmesobhan/gammaguard`); commercial use requires a written license.
 The validation datasets are third-party and **not** covered by it; see [docs/data.md](docs/data.md) for their licences and citations.
