@@ -13,7 +13,7 @@ import numpy as np
 
 from . import __version__
 from .io import read_spectrum, write_spectrum
-from .qa import Baseline, run_qa
+from .qa import Baseline, analyze_trend_series, diagnose_hardware, run_qa
 from .simulate import FAULTS, background_scenario, inject, parse_fault, simulate, source_scenario
 
 
@@ -41,13 +41,54 @@ def _cmd_baseline(args: argparse.Namespace) -> int:
 
 
 def _cmd_check(args: argparse.Namespace) -> int:
-    report = run_qa(Baseline.load(args.baseline), read_spectrum(args.spectrum), mode=args.mode)
-    text = {"text": report.to_text, "json": report.to_json, "md": report.to_markdown}[args.format]()
+    base = Baseline.load(args.baseline)
+    spec = read_spectrum(args.spectrum)
+    report = run_qa(base, spec, mode=args.mode)
+    if args.diagnose:
+        diag = diagnose_hardware(base, spec, report, mode=args.mode)
+        if args.format == "json":
+            import json
+            payload = report.to_dict()
+            payload["diagnosis"] = diag.to_dict()
+            text = json.dumps(payload, indent=2)
+        elif args.format == "md":
+            text = report.to_markdown() + "\n" + diag.to_markdown()
+        else:
+            text = report.to_text() + "\n\n" + diag.to_text()
+    else:
+        text = {"text": report.to_text, "json": report.to_json, "md": report.to_markdown}[args.format]()
     if args.output:
         Path(args.output).write_text(text if text.endswith("\n") else text + "\n")
     else:
         print(text)
     return report.exit_code
+
+
+def _cmd_diagnose(args: argparse.Namespace) -> int:
+    base = Baseline.load(args.baseline)
+    spec = read_spectrum(args.spectrum)
+    report = run_qa(base, spec, mode=args.mode)
+    diag = diagnose_hardware(base, spec, report, mode=args.mode)
+    text = {"text": diag.to_text, "json": diag.to_json, "md": diag.to_markdown}[args.format]()
+    if args.output:
+        Path(args.output).write_text(text if text.endswith("\n") else text + "\n")
+    else:
+        print(text)
+    return report.exit_code
+
+
+def _cmd_trend(args: argparse.Namespace) -> int:
+    import json
+
+    base = Baseline.load(args.baseline)
+    spectra = [read_spectrum(p) for p in args.spectra]
+    fc = analyze_trend_series(base, spectra, metric=args.metric, n_reference=args.n_reference, mode=args.mode)
+    text = json.dumps(fc.to_dict(), indent=2) if args.format == "json" else fc.to_text()
+    if args.output:
+        Path(args.output).write_text(text if text.endswith("\n") else text + "\n")
+    else:
+        print(text)
+    return 0
 
 
 def _cmd_benchmark(args: argparse.Namespace) -> int:
@@ -121,9 +162,34 @@ def build_parser() -> argparse.ArgumentParser:
     c.add_argument("--baseline", required=True)
     c.add_argument("--mode", choices=("source", "background"), default="source")
     c.add_argument("--format", choices=("text", "json", "md"), default="text")
+    c.add_argument("--diagnose", action="store_true", help="include physics hardware root-cause diagnosis")
     c.add_argument("--output", help="write the report here instead of stdout")
     c.add_argument("spectrum")
     c.set_defaults(func=_cmd_check)
+
+    dg = sub.add_parser(
+        "diagnose",
+        help="identify the physical hardware/environmental root cause of a spectrum anomaly (.csv/.spe/.chn/.n42/.cnf)",
+    )
+    dg.add_argument("--baseline", required=True)
+    dg.add_argument("--mode", choices=("source", "background"), default="source")
+    dg.add_argument("--format", choices=("text", "json", "md"), default="text")
+    dg.add_argument("--output", help="write diagnosis report here instead of stdout")
+    dg.add_argument("spectrum")
+    dg.set_defaults(func=_cmd_diagnose)
+
+    tr = sub.add_parser(
+        "trend",
+        help="run Shewhart/CUSUM/EWMA pre-failure trend monitoring and project Remaining Useful Life (days)",
+    )
+    tr.add_argument("--baseline", required=True)
+    tr.add_argument("--mode", choices=("source", "background"), default="source")
+    tr.add_argument("--metric", choices=("fwhm_ratio_mean", "gain_change_pct"), default="fwhm_ratio_mean")
+    tr.add_argument("--n-reference", type=int, default=5, help="initial in-control runs for standardization")
+    tr.add_argument("--format", choices=("text", "json"), default="text")
+    tr.add_argument("--output", help="write forecast here instead of stdout")
+    tr.add_argument("spectra", nargs="+", help="chronological spectrum files (.csv/.spe/.chn/.n42/.cnf)")
+    tr.set_defaults(func=_cmd_trend)
 
     k = sub.add_parser("benchmark", help="Monte Carlo detection / false-alarm table")
     k.add_argument("--trials", type=int, default=20)

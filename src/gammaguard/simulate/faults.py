@@ -147,11 +147,72 @@ class DeadTime(Fault):
         return replace(sc, dead_time_fraction=self.fraction)
 
 
+@dataclass(frozen=True)
+class CryostatWarmup(Fault):
+    """LN2 cryostat warm-up / cold-finger microphonics / preamp FET noise: raises energy-independent
+    term ``a`` in ``FWHM^2 = a + b*E + c*E^2`` plus low-energy electronic noise."""
+
+    name: ClassVar[str] = "cryostat_warmup"
+    delta_a_keV2: float
+
+    def apply(self, sc: Scenario) -> Scenario:
+        from ..resolution import ResolutionModel
+
+        res = sc.detector.resolution
+        if isinstance(res, ResolutionModel):
+            new_res = ResolutionModel(res.a + self.delta_a_keV2, res.b, res.c)
+        else:
+            new_res = res.scaled(1.0 + 0.15 * self.delta_a_keV2)
+        bg = replace(sc.background, noise_rate=sc.background.noise_rate + 15.0 * max(self.delta_a_keV2, 0.2))
+        return replace(sc, detector=replace(sc.detector, resolution=new_res), background=bg)
+
+
+@dataclass(frozen=True)
+class ChargeTrapping(Fault):
+    """Neutron radiation damage or HV bias sag: incomplete charge collection adds low-energy
+    peak tailing plus energy-squared broadening ``c * E^2``."""
+
+    name: ClassVar[str] = "charge_trapping"
+    tail_fraction: float
+
+    def apply(self, sc: Scenario) -> Scenario:
+        from ..resolution import ResolutionModel
+
+        res = sc.detector.resolution
+        if isinstance(res, ResolutionModel):
+            new_res = ResolutionModel(res.a, res.b, res.c + 2.5e-6 * self.tail_fraction)
+        else:
+            new_res = res.scaled(1.0 + 0.5 * self.tail_fraction)
+        return replace(
+            sc,
+            detector=replace(sc.detector, resolution=new_res),
+            low_energy_tail_frac=self.tail_fraction,
+        )
+
+
+@dataclass(frozen=True)
+class PileUp(Fault):
+    """High count-rate pulse pile-up / pole-zero misadjustment: elevated dead time plus
+    right-side (high-energy) peak tailing."""
+
+    name: ClassVar[str] = "pileup"
+    dead_time_fraction: float
+    tail_fraction: float
+
+    def apply(self, sc: Scenario) -> Scenario:
+        return replace(
+            sc,
+            dead_time_fraction=self.dead_time_fraction,
+            high_energy_tail_frac=self.tail_fraction,
+        )
+
+
 FAULTS: dict[str, type[Fault]] = {
     cls.name: cls
     for cls in (
         GainDrift, ZeroShift, ResolutionLoss, BackgroundScale, RadonSurge,
         NoiseBurst, SpuriousPeak, HotChannel, DeadChannel, DeadTime,
+        CryostatWarmup, ChargeTrapping, PileUp,
     )
 }
 

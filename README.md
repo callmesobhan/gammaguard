@@ -109,8 +109,26 @@ GammaGuard QA report (source mode): FAIL
   [PASS   ] channel_anomalies  no hot or dead channels among 674 tested
 ```
 
-(`--format md|json` and `--output FILE` produce machine-readable reports.) Real spectra go in as CSV (`# live_time: …`,
-`# calibration: c0,c1`, then `channel,counts`); see [`io.py`](src/gammaguard/io.py).
+(`--format md|json` and `--output FILE` produce machine-readable reports.) GammaGuard natively reads and writes **CSV, JSON, IAEA/ORTEC `.spe`, ORTEC binary `.chn`, ANSI N42.42 `.n42`/`.xml`, and Canberra/Mirion `.cnf`** files (`io.py`).
+
+## Physics-Informed Hardware Root-Cause Diagnostics & Pre-Failure Forecasting
+
+Commercial suites (Genie 2000 QA, GammaVision QA) flag *that* FWHM or centroid crossed a tolerance, not *which physical subsystem is failing*. `gammaguard diagnose` and `gammaguard trend` combine:
+
+* **Energy-dependent $\Delta\text{FWHM}^2(E) = \Delta a + \Delta c \cdot (E/1\text{ MeV})^2$ decomposition** with **Poisson-exact left/right peak-wing asymmetry tests** to separate:
+  * **Cryostat warm-up / cold-finger microphonics / preamp FET noise** (flat $\Delta a \gg 0$, symmetric peaks, low-energy lines broaden most strongly),
+  * **HV bias sag / neutron radiation damage / charge trapping** (statistically significant low-energy left-side tailing + $\Delta c \cdot E^2$ growth),
+  * **High-rate pulse pile-up / pole-zero misadjustment** (elevated dead time + high-energy right-side tailing),
+  * **Amplifier/PMT gain drift** vs. **ADC baseline zero/offset shift**, **ADC stuck-bit channel faults**, and **room radon-progeny ingress** (`Pb-214`/`Bi-214` vs. primordial `K-40`/`Tl-208`).
+* **Pre-failure trend forecasting (`gammaguard trend`):** runs Shewhart, CUSUM, and EWMA control charts across chronological vendor spectra and projects **Estimated Days Until WARN / FAIL Tolerance Breach (Remaining Useful Life)**.
+
+```bash
+# Diagnose hardware root cause directly from any raw vendor MCA file (.spe, .chn, .n42, .cnf, .csv)
+gammaguard diagnose --baseline baseline.json today.cnf
+
+# Run CUSUM/EWMA pre-failure trend forecast & RUL projection over chronological check-source runs
+gammaguard trend --baseline baseline.json --metric fwhm_ratio_mean day_*.spe
+```
 
 ```python
 from gammaguard import Baseline, run_qa

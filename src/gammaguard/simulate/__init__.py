@@ -1,12 +1,15 @@
 from .faults import (
     FAULTS,
     BackgroundScale,
+    ChargeTrapping,
+    CryostatWarmup,
     DeadChannel,
     DeadTime,
     Fault,
     GainDrift,
     HotChannel,
     NoiseBurst,
+    PileUp,
     RadonSurge,
     ResolutionLoss,
     SpuriousPeak,
@@ -30,8 +33,9 @@ from .generator import (
 )
 
 __all__ = [
-    "FAULTS", "QA_SOURCE", "QA_SOURCE_NAI", "BackgroundModel", "BackgroundScale", "DeadChannel", "DeadTime",
-    "DetectorConfig", "Fault", "GainDrift", "HotChannel", "NoiseBurst", "RadonSurge", "ResolutionLoss",
-    "Scenario", "SpuriousPeak", "ZeroShift", "background_scenario", "expected_counts", "hpge_detector",
-    "inject", "nai_background", "nai_detector", "parse_fault", "simulate", "source_scenario",
+    "FAULTS", "QA_SOURCE", "QA_SOURCE_NAI", "BackgroundModel", "BackgroundScale", "ChargeTrapping",
+    "CryostatWarmup", "DeadChannel", "DeadTime", "DetectorConfig", "Fault", "GainDrift", "HotChannel",
+    "NoiseBurst", "PileUp", "RadonSurge", "ResolutionLoss", "Scenario", "SpuriousPeak", "ZeroShift",
+    "background_scenario", "expected_counts", "hpge_detector", "inject", "nai_background", "nai_detector",
+    "parse_fault", "simulate", "source_scenario",
 ]

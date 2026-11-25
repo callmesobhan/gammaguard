@@ -14,6 +14,7 @@ from .checks import (
     check_unexpected_peaks,
     find_candidates,
 )
+from .diagnostics import HardwareDiagnosis, PeakShapeSignature, TrendForecast, analyze_trend_series, diagnose_hardware
 from .measure import measure_lines
 from .profiles import HPGE, NAI, PROFILES, DetectorProfile, get_profile
 from .report import CheckResult, QAReport, Status
@@ -61,8 +62,9 @@ def run_qa(
 
 
 __all__ = [
-    "HPGE", "NAI", "PROFILES", "Baseline", "CheckResult", "DetectorProfile", "FitOptions", "QAReport", "Status",
-    "Tolerances", "get_profile", "check_acquisition",
-    "check_background", "check_calibration", "check_channel_anomalies", "check_resolution",
-    "check_unexpected_peaks", "measure_lines", "run_qa",
+    "HPGE", "NAI", "PROFILES", "Baseline", "CheckResult", "DetectorProfile", "FitOptions",
+    "HardwareDiagnosis", "PeakShapeSignature", "QAReport", "Status", "Tolerances", "TrendForecast",
+    "analyze_trend_series", "check_acquisition", "check_background", "check_calibration",
+    "check_channel_anomalies", "check_resolution", "check_unexpected_peaks", "diagnose_hardware",
+    "get_profile", "measure_lines", "run_qa",
 ]

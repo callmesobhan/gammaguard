@@ -91,6 +91,10 @@ class Scenario:
     extra_lines: tuple[tuple[float, float], ...] = ()  # (keV, net cps) on the true energy scale
     channel_extra: tuple[tuple[int, float], ...] = ()  # (channel, extra cps)
     dead_channels: tuple[int, ...] = ()
+    low_energy_tail_frac: float = 0.0  # incomplete charge collection / neutron-damage low-E tail fraction at 1 MeV
+    low_energy_tail_sigma: float = 2.2  # exponential decay length of low-E tail in units of peak sigma
+    high_energy_tail_frac: float = 0.0  # high-rate pulse pile-up / pole-zero right-side tail fraction
+    high_energy_tail_sigma: float = 2.0
     faults: tuple[str, ...] = ()  # labels of injected faults (ground truth)
 
 
@@ -131,7 +135,36 @@ def expected_counts(sc: Scenario) -> np.ndarray:
 
     def add_peak(energy: float, cps: float, shelf: bool) -> None:
         sig = float(det.resolution.sigma(energy))
-        rate[:] += cps * np.diff(ndtr((e_edges - energy) / sig))
+        # Optional physically motivated peak asymmetry (low-energy charge trapping or high-energy pile-up)
+        le_scale = max(energy / 1000.0, 0.25)
+        le_frac = min(0.55, sc.low_energy_tail_frac * le_scale) if sc.low_energy_tail_frac > 0 else 0.0
+        he_frac = min(0.45, sc.high_energy_tail_frac) if sc.high_energy_tail_frac > 0 else 0.0
+        core_frac = max(0.2, 1.0 - le_frac - he_frac)
+        rate[:] += (cps * core_frac) * np.diff(ndtr((e_edges - energy) / sig))
+        if le_frac > 0:
+            tau = max(sc.low_energy_tail_sigma * sig, 1e-3)
+            # Exponentially modified low-energy tail: exp((E-E0)/tau) * erfc(...)
+            z_arg = (e_mid - energy) / (np.sqrt(2.0) * sig) + sig / (np.sqrt(2.0) * tau)
+            # Evaluate stably only where tail is non-negligible
+            win = (e_mid >= energy - 12.0 * tau) & (e_mid <= energy + 5.0 * sig)
+            if np.any(win):
+                ew = e_mid[win]
+                zw = z_arg[win]
+                shape = np.exp(np.clip((ew - energy) / tau + 0.5 * (sig / tau) ** 2, -60.0, 60.0)) * erfc(zw)
+                wsum = float(np.sum(shape))
+                if wsum > 0:
+                    rate[win] += (cps * le_frac) * (shape / wsum)
+        if he_frac > 0:
+            tau_h = max(sc.high_energy_tail_sigma * sig, 1e-3)
+            z_arg = (energy - e_mid) / (np.sqrt(2.0) * sig) + sig / (np.sqrt(2.0) * tau_h)
+            win = (e_mid >= energy - 5.0 * sig) & (e_mid <= energy + 12.0 * tau_h)
+            if np.any(win):
+                ew = e_mid[win]
+                zw = z_arg[win]
+                shape = np.exp(np.clip((energy - ew) / tau_h + 0.5 * (sig / tau_h) ** 2, -60.0, 60.0)) * erfc(zw)
+                wsum = float(np.sum(shape))
+                if wsum > 0:
+                    rate[win] += (cps * he_frac) * (shape / wsum)
         if shelf:
             pt = _peak_to_total(det, energy)
             e_c = energy / (1.0 + ME_C2_KEV / (2.0 * energy))  # Compton edge
